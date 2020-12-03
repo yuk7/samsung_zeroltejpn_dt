@@ -18,7 +18,7 @@ DTSFILES="exynos7420-zerolte_jpn_00 exynos7420-zerolte_jpn_01 exynos7420-zerolte
 
 for DTS in $DTSFILES; do
 	${CPP} -undef -x assembler-with-cpp -nostdinc -I "${SRC_INC}" "${SRC_DTS}/${DTS}.dts" > "${OUT}/${DTS}.dts"
-	${DTC} -i "${SRC_DTS}" -O dtb -o "${DTS}.dtb" "${DTS}.dts"
+	${DTC} -i "${SRC_DTS}" -O dtb -o "${OUT}/${DTS}.dtb" "${OUT}/${DTS}.dts"
 done
 
 ${DTBTOOL} -o "${OUT}/zeroltejpn-dtb.img" -d "${OUT}/" -s 2048
